@@ -1,0 +1,110 @@
+package com.forcasty.controller;
+
+import com.forcasty.dto.WeatherResponse;
+import com.forcasty.service.CachedWeatherService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/weather")
+@CrossOrigin(origins = "*")
+@Tag(name = "Weather Forecast", description = "API for retrieving weather forecast information")
+public class WeatherController {
+    
+    private final CachedWeatherService cachedWeatherService;
+    
+    @Autowired
+    public WeatherController(CachedWeatherService cachedWeatherService) {
+        this.cachedWeatherService = cachedWeatherService;
+    }
+    
+    @Operation(
+            summary = "Get weather forecast by address",
+            description = "Retrieves current weather forecast information for a given address. " +
+                         "Includes current temperature, high/low temperatures, and weather description. " +
+                         "Results are cached for 30 minutes to improve performance."
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Weather forecast retrieved successfully",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = WeatherResponse.class),
+                            examples = @ExampleObject(
+                                    name = "Success Response",
+                                    value = """
+                                            {
+                                              "address": "123 Main St, New York, NY 10001",
+                                              "zipCode": "10001",
+                                              "currentTemperature": 72.5,
+                                              "temperatureUnit": "°F",
+                                              "highTemperature": 78.0,
+                                              "lowTemperature": 65.0,
+                                              "description": "Clear sky",
+                                              "fromCache": false,
+                                              "timestamp": 1703123456789
+                                            }
+                                            """
+                            )
+                    )
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid request - address parameter is required",
+                    content = @Content(
+                            mediaType = "application/json",
+                            examples = @ExampleObject(
+                                    name = "Error Response",
+                                    value = """
+                                            {
+                                              "error": "Address parameter is required"
+                                            }
+                                            """
+                            )
+                    )
+            )
+    })
+    @GetMapping("/forecast")
+    public ResponseEntity<WeatherResponse> getWeatherForecast(
+            @Parameter(description = "Address for weather lookup", required = true, example = "123 Main St, New York, NY 10001")
+            @RequestParam String address) {
+        try {
+            WeatherResponse response = cachedWeatherService.getWeatherForecast(address);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    
+    @Operation(
+            summary = "Health check",
+            description = "Returns the current status of the Weather API service"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "API is running and healthy",
+                    content = @Content(
+                            mediaType = "text/plain",
+                            examples = @ExampleObject(
+                                    name = "Health Response",
+                                    value = "Weather API is running"
+                            )
+                    )
+            )
+    })
+    @GetMapping("/health")
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("Weather API is running");
+    }
+}

@@ -1,0 +1,20 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: weather-api-test
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=100,expireAfterWrite=1m
+
+weather:
+  api:
+    base-url: https://api.open-meteo.com/v1/forecast
+    timeout: 5000
+
+logging:
+  level:
+    com.forcasty: DEBUG
+    org.springframework.cache: DEBUG

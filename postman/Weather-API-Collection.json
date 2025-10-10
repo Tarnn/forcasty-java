@@ -1,0 +1,519 @@
+{
+	"info": {
+		"_postman_id": "weather-api-collection",
+		"name": "Weather Forecast API",
+		"description": "Complete collection for testing the Weather Forecast API with multiple states and comprehensive test cases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"health"
+					]
+				},
+				"description": "Check if the API is running and healthy"
+			},
+			"response": []
+		},
+		{
+			"name": "New York - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=123 Main St, New York, NY 10001",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "123 Main St, New York, NY 10001"
+						}
+					]
+				},
+				"description": "Get weather forecast for New York using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "California - Los Angeles - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=456 Hollywood Blvd, Los Angeles, CA 90210",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "456 Hollywood Blvd, Los Angeles, CA 90210"
+						}
+					]
+				},
+				"description": "Get weather forecast for Los Angeles, California using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "California - San Francisco - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=789 Market St, San Francisco, CA 94102",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "789 Market St, San Francisco, CA 94102"
+						}
+					]
+				},
+				"description": "Get weather forecast for San Francisco, California using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Illinois - Chicago - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=789 Michigan Ave, Chicago, IL 60611",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "789 Michigan Ave, Chicago, IL 60611"
+						}
+					]
+				},
+				"description": "Get weather forecast for Chicago, Illinois using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Texas - Houston - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=321 Main St, Houston, TX 77002",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "321 Main St, Houston, TX 77002"
+						}
+					]
+				},
+				"description": "Get weather forecast for Houston, Texas using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Texas - Dallas - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=654 Elm St, Dallas, TX 75201",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "654 Elm St, Dallas, TX 75201"
+						}
+					]
+				},
+				"description": "Get weather forecast for Dallas, Texas using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Florida - Miami - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=987 Ocean Dr, Miami, FL 33139",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "987 Ocean Dr, Miami, FL 33139"
+						}
+					]
+				},
+				"description": "Get weather forecast for Miami, Florida using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Washington - Seattle - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=147 Pine St, Seattle, WA 98101",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "147 Pine St, Seattle, WA 98101"
+						}
+					]
+				},
+				"description": "Get weather forecast for Seattle, Washington using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Colorado - Denver - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=258 16th St, Denver, CO 80202",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "258 16th St, Denver, CO 80202"
+						}
+					]
+				},
+				"description": "Get weather forecast for Denver, Colorado using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Arizona - Phoenix - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=369 Central Ave, Phoenix, AZ 85004",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "369 Central Ave, Phoenix, AZ 85004"
+						}
+					]
+				},
+				"description": "Get weather forecast for Phoenix, Arizona using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Nevada - Las Vegas - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=741 Las Vegas Blvd, Las Vegas, NV 89101",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "741 Las Vegas Blvd, Las Vegas, NV 89101"
+						}
+					]
+				},
+				"description": "Get weather forecast for Las Vegas, Nevada using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Oregon - Portland - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=852 SW 3rd Ave, Portland, OR 97204",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "852 SW 3rd Ave, Portland, OR 97204"
+						}
+					]
+				},
+				"description": "Get weather forecast for Portland, Oregon using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Massachusetts - Boston - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=963 Boylston St, Boston, MA 02115",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "963 Boylston St, Boston, MA 02115"
+						}
+					]
+				},
+				"description": "Get weather forecast for Boston, Massachusetts using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Georgia - Atlanta - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=174 Peachtree St, Atlanta, GA 30303",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "174 Peachtree St, Atlanta, GA 30303"
+						}
+					]
+				},
+				"description": "Get weather forecast for Atlanta, Georgia using GET method"
+			},
+			"response": []
+		},
+		{
+			"name": "Test Cache - First Call - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=555 Test St, Cache City, CC 12345",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "555 Test St, Cache City, CC 12345"
+						}
+					]
+				},
+				"description": "First call to test address - should return fromCache: false"
+			},
+			"response": []
+		},
+		{
+			"name": "Test Cache - Second Call - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=555 Test St, Cache City, CC 12345",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "555 Test St, Cache City, CC 12345"
+						}
+					]
+				},
+				"description": "Second call to same address - should return fromCache: true"
+			},
+			"response": []
+		},
+		{
+			"name": "Error Test - Missing Address Parameter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					]
+				},
+				"description": "Test error handling with missing address parameter - should return 400 Bad Request"
+			},
+			"response": []
+		},
+		{
+			"name": "Error Test - Empty Address Parameter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": ""
+						}
+					]
+				},
+				"description": "Test error handling with empty address parameter - should return 400 Bad Request"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
