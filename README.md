@@ -2,6 +2,10 @@
 
 A simple weather API built with Spring Boot that takes an address and returns current weather data. Includes caching to avoid hitting external APIs too frequently.
 
+## Demo
+
+Watch the demo: [YouTube Demo](https://youtu.be/ItajCEe4njQ)
+
 ## What it does
 
 - Takes an address and returns current weather data
