@@ -10,6 +10,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Weather Forecast", description = "API for retrieving weather forecast information")
 public class WeatherController {
     
+    private static final Logger logger = LoggerFactory.getLogger(WeatherController.class);
     private final CachedWeatherService cachedWeatherService;
     
     @Autowired
@@ -78,10 +81,16 @@ public class WeatherController {
     public ResponseEntity<WeatherResponse> getWeatherForecast(
             @Parameter(description = "Address for weather lookup", required = true, example = "123 Main St, New York, NY 10001")
             @RequestParam String address) {
+        logger.info("Weather forecast request received for address: {}", address);
+        
         try {
             WeatherResponse response = cachedWeatherService.getWeatherForecast(address);
+            logger.info("Weather forecast retrieved successfully for address: {}, fromCache: {}", 
+                       address, response.isFromCache());
             return ResponseEntity.ok(response);
         } catch (Exception e) {
+            logger.error("Failed to retrieve weather forecast for address: {}, error: {}", 
+                        address, e.getMessage());
             return ResponseEntity.badRequest().build();
         }
     }
@@ -105,6 +114,7 @@ public class WeatherController {
     })
     @GetMapping("/health")
     public ResponseEntity<String> healthCheck() {
+        logger.debug("Health check endpoint accessed");
         return ResponseEntity.ok("Weather API is running");
     }
 }

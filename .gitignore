@@ -32,6 +32,37 @@ build/
 ### VS Code ###
 .vscode/
 
+### Frontend (React/Node.js) ###
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
+frontend/.cache/
+frontend/coverage/
+frontend/.nyc_output/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/lerna-debug.log*
+frontend/.pnpm-debug.log*
+frontend/.eslintcache
+frontend/.stylelintcache
+
+### Logs ###
+*.log
+logs/
+weather-api.log*
+
 ### OS ###
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db

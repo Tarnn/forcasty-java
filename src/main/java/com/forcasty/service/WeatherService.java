@@ -2,6 +2,8 @@ package com.forcasty.service;
 
 import com.forcasty.dto.OpenMeteoResponse;
 import com.forcasty.dto.WeatherResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class WeatherService {
     
+    private static final Logger logger = LoggerFactory.getLogger(WeatherService.class);
     private final RestTemplate restTemplate;
     private final GeocodingService geocodingService;
     
@@ -23,18 +26,29 @@ public class WeatherService {
     
     @Cacheable(value = "weatherCache", key = "#address")
     public WeatherResponse getWeatherForecast(String address) {
+        logger.info("Fetching weather data for address: {}", address);
+        
         try {
             double[] coordinates = geocodingService.getCoordinatesFromAddress(address);
             String zipCode = geocodingService.getZipCodeFromAddress(address);
             
+            logger.debug("Coordinates resolved for address {}: lat={}, lon={}, zipCode={}", 
+                        address, coordinates[0], coordinates[1], zipCode);
+            
             String url = String.format("%s?latitude=%.4f&longitude=%.4f&current_weather=true&daily=temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit",
                     weatherApiBaseUrl, coordinates[0], coordinates[1]);
             
+            logger.debug("Calling Open-Meteo API: {}", url);
             OpenMeteoResponse response = restTemplate.getForObject(url, OpenMeteoResponse.class);
             
             if (response == null || response.getCurrent_weather() == null) {
+                logger.error("No weather data received from Open-Meteo API for address: {}", address);
                 throw new RuntimeException("No weather data available for the given address");
             }
+            
+            logger.debug("Weather data received for address {}: temp={}°F, weatherCode={}", 
+                        address, response.getCurrent_weather().getTemperature(), 
+                        response.getCurrent_weather().getWeathercode());
             
             WeatherResponse weatherResponse = new WeatherResponse(
                     address,
@@ -57,9 +71,13 @@ public class WeatherService {
             
             weatherResponse.setDescription(getWeatherDescription(response.getCurrent_weather().getWeathercode()));
             
+            logger.info("Weather forecast successfully prepared for address: {}, temp: {}°F, description: {}", 
+                       address, weatherResponse.getCurrentTemperature(), weatherResponse.getDescription());
+            
             return weatherResponse;
             
         } catch (Exception e) {
+            logger.error("Failed to fetch weather data for address: {}, error: {}", address, e.getMessage(), e);
             throw new RuntimeException("Failed to fetch weather data: " + e.getMessage(), e);
         }
     }
