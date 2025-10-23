@@ -32,7 +32,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=123 Main St, New York, NY 10001",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=350 Fifth Avenue, New York, NY 10118",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -44,11 +44,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "123 Main St, New York, NY 10001"
+							"value": "350 Fifth Avenue, New York, NY 10118"
 						}
 					]
 				},
-				"description": "Get weather forecast for New York using GET method"
+				"description": "Get weather forecast for New York (Empire State Building) using GET method"
 			},
 			"response": []
 		},
@@ -58,7 +58,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=456 Hollywood Blvd, Los Angeles, CA 90210",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=6925 Hollywood Blvd, Los Angeles, CA 90028",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -70,11 +70,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "456 Hollywood Blvd, Los Angeles, CA 90210"
+							"value": "6925 Hollywood Blvd, Los Angeles, CA 90028"
 						}
 					]
 				},
-				"description": "Get weather forecast for Los Angeles, California using GET method"
+				"description": "Get weather forecast for Los Angeles (Hollywood Walk of Fame) using GET method"
 			},
 			"response": []
 		},
@@ -84,7 +84,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=789 Market St, San Francisco, CA 94102",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=Golden Gate Bridge, San Francisco, CA 94129",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -96,11 +96,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "789 Market St, San Francisco, CA 94102"
+							"value": "Golden Gate Bridge, San Francisco, CA 94129"
 						}
 					]
 				},
-				"description": "Get weather forecast for San Francisco, California using GET method"
+				"description": "Get weather forecast for San Francisco (Golden Gate Bridge) using GET method"
 			},
 			"response": []
 		},
@@ -110,7 +110,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=789 Michigan Ave, Chicago, IL 60611",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=233 S Wacker Dr, Chicago, IL 60606",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -122,11 +122,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "789 Michigan Ave, Chicago, IL 60611"
+							"value": "233 S Wacker Dr, Chicago, IL 60606"
 						}
 					]
 				},
-				"description": "Get weather forecast for Chicago, Illinois using GET method"
+				"description": "Get weather forecast for Chicago (Willis Tower) using GET method"
 			},
 			"response": []
 		},
@@ -136,7 +136,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=321 Main St, Houston, TX 77002",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=1600 Smith St, Houston, TX 77002",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -148,7 +148,7 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "321 Main St, Houston, TX 77002"
+							"value": "1600 Smith St, Houston, TX 77002"
 						}
 					]
 				},
@@ -162,7 +162,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=654 Elm St, Dallas, TX 75201",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=1500 Marilla St, Dallas, TX 75201",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -174,11 +174,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "654 Elm St, Dallas, TX 75201"
+							"value": "1500 Marilla St, Dallas, TX 75201"
 						}
 					]
 				},
-				"description": "Get weather forecast for Dallas, Texas using GET method"
+				"description": "Get weather forecast for Dallas (City Hall) using GET method"
 			},
 			"response": []
 		},
@@ -188,7 +188,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=987 Ocean Dr, Miami, FL 33139",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=1200 Ocean Dr, Miami Beach, FL 33139",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -200,11 +200,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "987 Ocean Dr, Miami, FL 33139"
+							"value": "1200 Ocean Dr, Miami Beach, FL 33139"
 						}
 					]
 				},
-				"description": "Get weather forecast for Miami, Florida using GET method"
+				"description": "Get weather forecast for Miami Beach, Florida using GET method"
 			},
 			"response": []
 		},
@@ -214,7 +214,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=147 Pine St, Seattle, WA 98101",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=400 Broad St, Seattle, WA 98109",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -226,11 +226,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "147 Pine St, Seattle, WA 98101"
+							"value": "400 Broad St, Seattle, WA 98109"
 						}
 					]
 				},
-				"description": "Get weather forecast for Seattle, Washington using GET method"
+				"description": "Get weather forecast for Seattle (Space Needle) using GET method"
 			},
 			"response": []
 		},
@@ -240,7 +240,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=258 16th St, Denver, CO 80202",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=1200 Broadway, Denver, CO 80203",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -252,7 +252,7 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "258 16th St, Denver, CO 80202"
+							"value": "1200 Broadway, Denver, CO 80203"
 						}
 					]
 				},
@@ -266,7 +266,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=369 Central Ave, Phoenix, AZ 85004",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=1 E Washington St, Phoenix, AZ 85004",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -278,11 +278,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "369 Central Ave, Phoenix, AZ 85004"
+							"value": "1 E Washington St, Phoenix, AZ 85004"
 						}
 					]
 				},
-				"description": "Get weather forecast for Phoenix, Arizona using GET method"
+				"description": "Get weather forecast for Phoenix (State Capitol) using GET method"
 			},
 			"response": []
 		},
@@ -292,7 +292,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=741 Las Vegas Blvd, Las Vegas, NV 89101",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=3600 S Las Vegas Blvd, Las Vegas, NV 89109",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -304,11 +304,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "741 Las Vegas Blvd, Las Vegas, NV 89101"
+							"value": "3600 S Las Vegas Blvd, Las Vegas, NV 89109"
 						}
 					]
 				},
-				"description": "Get weather forecast for Las Vegas, Nevada using GET method"
+				"description": "Get weather forecast for Las Vegas (The Strip) using GET method"
 			},
 			"response": []
 		},
@@ -318,7 +318,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=852 SW 3rd Ave, Portland, OR 97204",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=1120 SW 5th Ave, Portland, OR 97204",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -330,11 +330,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "852 SW 3rd Ave, Portland, OR 97204"
+							"value": "1120 SW 5th Ave, Portland, OR 97204"
 						}
 					]
 				},
-				"description": "Get weather forecast for Portland, Oregon using GET method"
+				"description": "Get weather forecast for Portland (City Hall) using GET method"
 			},
 			"response": []
 		},
@@ -344,7 +344,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=963 Boylston St, Boston, MA 02115",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=1 Beacon St, Boston, MA 02108",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -356,11 +356,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "963 Boylston St, Boston, MA 02115"
+							"value": "1 Beacon St, Boston, MA 02108"
 						}
 					]
 				},
-				"description": "Get weather forecast for Boston, Massachusetts using GET method"
+				"description": "Get weather forecast for Boston (State House) using GET method"
 			},
 			"response": []
 		},
@@ -396,7 +396,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=555 Test St, Cache City, CC 12345",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=1600 Pennsylvania Ave NW, Washington, DC 20500",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -408,11 +408,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "555 Test St, Cache City, CC 12345"
+							"value": "1600 Pennsylvania Ave NW, Washington, DC 20500"
 						}
 					]
 				},
-				"description": "First call to test address - should return fromCache: false"
+				"description": "First call to Washington DC (White House) - should return fromCache: false"
 			},
 			"response": []
 		},
@@ -422,7 +422,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/weather/forecast?address=555 Test St, Cache City, CC 12345",
+					"raw": "{{baseUrl}}/api/weather/forecast?address=1600 Pennsylvania Ave NW, Washington, DC 20500",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -434,11 +434,11 @@
 					"query": [
 						{
 							"key": "address",
-							"value": "555 Test St, Cache City, CC 12345"
+							"value": "1600 Pennsylvania Ave NW, Washington, DC 20500"
 						}
 					]
 				},
-				"description": "Second call to same address - should return fromCache: true"
+				"description": "Second call to same Washington DC address - should return fromCache: true"
 			},
 			"response": []
 		},
