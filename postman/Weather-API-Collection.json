@@ -443,6 +443,32 @@
 			"response": []
 		},
 		{
+			"name": "Error Test - Invalid Address (Geocoding Failure)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/weather/forecast?address=Golden Gate Bridge, San Francisco, CA 94129",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"weather",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "Golden Gate Bridge, San Francisco, CA 94129"
+						}
+					]
+				},
+				"description": "Test error handling with address that cannot be geocoded - should return 400 Bad Request with JSON error response"
+			},
+			"response": []
+		},
+		{
 			"name": "Error Test - Missing Address Parameter",
 			"request": {
 				"method": "GET",
@@ -458,7 +484,7 @@
 						"forecast"
 					]
 				},
-				"description": "Test error handling with missing address parameter - should return 400 Bad Request"
+				"description": "Test error handling with missing address parameter - should return 400 Bad Request with JSON error response"
 			},
 			"response": []
 		},
@@ -484,7 +510,7 @@
 						}
 					]
 				},
-				"description": "Test error handling with empty address parameter - should return 400 Bad Request"
+				"description": "Test error handling with empty address parameter - should return 400 Bad Request with JSON error response"
 			},
 			"response": []
 		}

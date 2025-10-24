@@ -1,5 +1,6 @@
 package com.forcasty.controller;
 
+import com.forcasty.dto.ErrorResponse;
 import com.forcasty.dto.WeatherResponse;
 import com.forcasty.service.CachedWeatherService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -63,14 +64,18 @@ public class WeatherController {
             ),
             @ApiResponse(
                     responseCode = "400",
-                    description = "Invalid request - address parameter is required",
+                    description = "Invalid request - address parameter is required or geocoding failed",
                     content = @Content(
                             mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponse.class),
                             examples = @ExampleObject(
                                     name = "Error Response",
                                     value = """
                                             {
-                                              "error": "Address parameter is required"
+                                              "error": "Failed to fetch weather data",
+                                              "message": "Unable to geocode address: Golden Gate Bridge, San Francisco, CA 94129. Please provide a valid, specific address with city and state or ZIP code.",
+                                              "status": 400,
+                                              "timestamp": 1703123456789
                                             }
                                             """
                             )
@@ -78,7 +83,7 @@ public class WeatherController {
             )
     })
     @GetMapping("/forecast")
-    public ResponseEntity<WeatherResponse> getWeatherForecast(
+    public ResponseEntity<?> getWeatherForecast(
             @Parameter(description = "Address for weather lookup", required = true, example = "123 Main St, New York, NY 10001")
             @RequestParam String address) {
         logger.info("Weather forecast request received for address: {}", address);
@@ -91,7 +96,12 @@ public class WeatherController {
         } catch (Exception e) {
             logger.error("Failed to retrieve weather forecast for address: {}, error: {}", 
                         address, e.getMessage());
-            return ResponseEntity.badRequest().build();
+            ErrorResponse errorResponse = new ErrorResponse(
+                "Failed to fetch weather data",
+                e.getMessage(),
+                400
+            );
+            return ResponseEntity.badRequest().body(errorResponse);
         }
     }
     

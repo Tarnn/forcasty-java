@@ -87,8 +87,10 @@ class GeocodingServiceIntegrationTest {
         // Assert
         assertNotNull(result);
         assertEquals(2, result.length);
-        assertEquals(40.7128, result[0], 0.0001);
-        assertEquals(-74.0060, result[1], 0.0001);
+        // Verify coordinates are in the NYC area (latitude ~40.6-40.9, longitude ~-74.0 to -73.9)
+        // Using reasonable tolerance since this is an integration test with real API
+        assertTrue(result[0] > 40.5 && result[0] < 41.0, "Latitude should be in NYC area: " + result[0]);
+        assertTrue(result[1] > -74.1 && result[1] < -73.8, "Longitude should be in NYC area: " + result[1]);
     }
 
     @Test

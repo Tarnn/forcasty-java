@@ -25,19 +25,29 @@ public class CachedWeatherService {
         logger.debug("Checking cache for address: {}", address);
         
         Cache cache = cacheManager.getCache("weatherCache");
-        boolean fromCache = false;
         
-        if (cache != null && cache.get(address) != null) {
-            fromCache = true;
-            logger.info("Cache hit for address: {}", address);
-        } else {
-            logger.info("Cache miss for address: {}", address);
+        // Try to get from cache first
+        if (cache != null) {
+            Cache.ValueWrapper cached = cache.get(address);
+            if (cached != null) {
+                logger.info("Cache hit for address: {}", address);
+                WeatherResponse response = (WeatherResponse) cached.get();
+                response.setFromCache(true);
+                return response;
+            }
         }
         
+        // Cache miss - fetch from API
+        logger.info("Cache miss - fetching from API for address: {}", address);
         WeatherResponse response = weatherService.getWeatherForecast(address);
-        response.setFromCache(fromCache);
+        response.setFromCache(false);
         
-        logger.debug("Weather response prepared for address: {}, fromCache: {}", address, fromCache);
+        // Store in cache
+        if (cache != null) {
+            cache.put(address, response);
+        }
+        
+        logger.debug("Weather response fetched and cached for address: {}", address);
         return response;
     }
 }
